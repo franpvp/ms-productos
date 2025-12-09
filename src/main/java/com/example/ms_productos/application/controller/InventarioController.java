@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/inventarios")
 @RequiredArgsConstructor
@@ -28,6 +30,12 @@ public class InventarioController {
     public ResponseEntity<InventarioDTO> crear(@RequestBody CrearInventarioRequest request) {
         InventarioDTO creado = inventarioService.crear(request);
         return ResponseEntity.ok(creado);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<InventarioDTO>> findAll() {
+        List<InventarioDTO> dto = inventarioService.findAll();
+        return ResponseEntity.ok(dto);
     }
 
     @GetMapping("/producto/{idProducto}")

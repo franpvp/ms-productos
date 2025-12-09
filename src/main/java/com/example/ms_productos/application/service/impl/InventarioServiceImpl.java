@@ -12,12 +12,22 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class InventarioServiceImpl implements InventarioService {
 
     private final InventarioRepository inventarioRepository;
     private final ProductoRepository productoRepository;
+
+    @Override
+    public List<InventarioDTO> findAll() {
+        List<InventarioEntity> listaInventario = inventarioRepository.findAll();
+        return listaInventario.stream()
+                .map(InventarioMapper::toDTO)
+                .toList();
+    }
 
     @Override
     @Transactional
