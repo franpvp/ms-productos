@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface InventarioService {
 
-    List<InventarioDTO> findAll();
+    List<InventarioDTO> listar();
     InventarioDTO crear(CrearInventarioRequest request);
 
     InventarioDTO obtenerPorProducto(Long idProducto);

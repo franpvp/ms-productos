@@ -22,7 +22,7 @@ public class InventarioServiceImpl implements InventarioService {
     private final ProductoRepository productoRepository;
 
     @Override
-    public List<InventarioDTO> findAll() {
+    public List<InventarioDTO> listar() {
         List<InventarioEntity> listaInventario = inventarioRepository.findAll();
         return listaInventario.stream()
                 .map(InventarioMapper::toDTO)

@@ -33,8 +33,8 @@ public class InventarioController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<InventarioDTO>> findAll() {
-        List<InventarioDTO> dto = inventarioService.findAll();
+    public ResponseEntity<List<InventarioDTO>> listar() {
+        List<InventarioDTO> dto = inventarioService.listar();
         return ResponseEntity.ok(dto);
     }
 
