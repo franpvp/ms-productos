@@ -69,7 +69,7 @@ class InventarioServiceImplTest {
         when(inventarioRepository.findAll()).thenReturn(List.of(i1, i2));
 
         // Act
-        List<InventarioDTO> lista = inventarioServiceImpl.findAll();
+        List<InventarioDTO> lista = inventarioServiceImpl.listar();
 
         // Assert
         assertThat(lista).hasSize(2);

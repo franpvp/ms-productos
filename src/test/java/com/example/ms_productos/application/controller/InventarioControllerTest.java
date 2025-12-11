@@ -56,15 +56,15 @@ class InventarioControllerTest {
         InventarioDTO i1 = InventarioDTO.builder().id(1L).cantidad(5).build();
         InventarioDTO i2 = InventarioDTO.builder().id(2L).cantidad(10).build();
 
-        when(inventarioService.findAll()).thenReturn(List.of(i1, i2));
+        when(inventarioService.listar()).thenReturn(List.of(i1, i2));
 
         
-        ResponseEntity<List<InventarioDTO>> response = inventarioController.findAll();
+        ResponseEntity<List<InventarioDTO>> response = inventarioController.listar();
 
         
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
         assertThat(response.getBody()).hasSize(2);
-        verify(inventarioService, times(1)).findAll();
+        verify(inventarioService, times(1)).listar();
     }
 
     @Test
