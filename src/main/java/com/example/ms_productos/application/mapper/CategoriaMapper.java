@@ -7,7 +7,6 @@ import com.example.ms_productos.application.entity.CategoriaEntity;
 
 public class CategoriaMapper {
 
-    // CREAR
     public static CategoriaEntity toEntity(CrearCategoriaRequest req) {
         CategoriaEntity e = new CategoriaEntity();
         e.setNombre(req.getNombre());
@@ -16,7 +15,6 @@ public class CategoriaMapper {
         return e;
     }
 
-    // ACTUALIZAR
     public static CategoriaEntity toEntity(CategoriaEntity entity, ActualizarCategoriaRequest req) {
         if (req.getNombre() != null) entity.setNombre(req.getNombre());
         if (req.getDescripcion() != null) entity.setDescripcion(req.getDescripcion());
@@ -24,7 +22,6 @@ public class CategoriaMapper {
         return entity;
     }
 
-    // DTO
     public static CategoriaDTO toDTO(CategoriaEntity e) {
         return new CategoriaDTO(
                 e.getId(),

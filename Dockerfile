@@ -9,9 +9,11 @@ RUN mvn -q -DskipTests package
 # ===== Run =====
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-ENV TZ=America/Santiago
 
-# Copiar el wallet a la imagen
+ENV TZ=America/Santiago
+ENV TNS_ADMIN=/app/wallet
+
+
 COPY Wallet_DQXABCOJF1X64NFC /app/wallet
 
 COPY --from=build /app/target/ms-productos-0.0.1-SNAPSHOT.jar app.jar
